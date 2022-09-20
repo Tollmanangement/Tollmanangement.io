@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TollMangement</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="toll.js"></script>
+</head>
+<body>
+    Toll mangement application
+  <hr>
+  <div id="tablepress-1" style="display:block; padding:25px;">
+    <ul class="table-control">
+      <li class="C-item">Toll entries/vehicle entries</li>
+      <li class="C-item">
+        
+        <select type="search" id="tablefilter" class="select-table-filter" data-table="order-table">
+               <option value="">ALL</option>  
+               <option value="Kappalur">Kappalur</option>  
+               <option value="Chengalpattu">Chengalpattu</option>  
+               <option value="Krishnagiri">Krishnagiri</option>  
+        </select>
+      </li>
+      <li class="C-item">
+        <div class="icon-wrapper">
+        
+        <input type="search" id="search-vehicle" class="light-table-filter" data-table="order-table" placeholder="Search vehicle" />
+        
+      </div>
+      </li>
+    </ul>
+    <ul class="table-control">
+
+      
+      <li class="C-item-r"><button id="swap" class="btn" >View all toll</button></li>
+      <li class="C-item-r"><button id="addtoll" class="btn">Add new toll</button></li>
+      <li class="C-item-r"><button id="addvehicle" class="btn">Add vehicle entry</button></li>
+    </ul>
+  
+
+<div class="container">
+
+<table id="order-table" class="order-table">
+  <thead>
+    <tr>
+      <th>vehicle TYPE</th>
+      <th>vehicle NUMBER</th>
+      <th>DATE/TIME</th>
+      <th>TOLL NAME</th>
+      <th>TARIFF</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+</div>
+
+
+
+<div id="map-1" style="display:none;padding:25px;">
+  <ul class="table-control">
+      <li class="C-item">Tollgate List </li>
+      <li class="C-item"><input type="search" class="light-table-filter" id="search-toll" placeholder="Search a toll" /></li>
+    </ul>
+    <ul class="table-control">
+
+      
+      <li class="C-item-r"><button id="swap-back" class="btn" >Back to vehicle logs</button></li>
+      <li class="C-item-r"><button id="addtoll-2" class="btn">Add new toll</button></li>
+      <li class="C-item-r"><button id="addvehicle2" class="btn">Add vehicle entry</button></li>
+    </ul>
+  
+<div class="container">
+
+<table id="order-table-toll" class="order-table-toll">
+  <thead>
+    <tr>
+      <th>TOLL NAME</th>
+      <th>CAR/JEEP/VAN</th>
+      <th>LCV</th>
+      <th>TRUCK/BUS</th>
+      <th>Heavy VEHICLE</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+</div>
+<div id="addtollModal" class="ebcf_modal">
+
+<div class="ebcf_modal-content">
+  <span class="ebcf_close">&times;</span>
+  <p class="toll-title">Add new toll</p>
+  <br>
+  <div class="toll-container">
+  Toll name *<br>
+  <input class="inp-toll-name" id="toll-name" placeholder=" Enter toll name" type="text">
+  <br>
+  Vehicle fare details*<br>
+  <select class="toll-entry" id="f-select">
+             <option value="">Select vehicle type</option>  
+             <option value="Car/Jeep/Van">Car/Jeep/Van</option>  
+            </select><input class="inp-toll" id="f-select-sin" type="number" placeholder=" Single Journey" required><input class="inp-toll" id="f-select-return" type="number" placeholder=" Return Journey"  required><br>
+  <select class="toll-entry" id="s-select">
+    <option value="">Select vehicle type</option>
+             <option value="LCV">LCV</option>  
+            </select><input class="inp-toll" id="s-select-sin" type="number" placeholder=" Single Journey" required><input class="inp-toll" id="s-select-return" type="number" placeholder=" Return Journey"  required><br>
+  <select class="toll-entry" id="t-select">
+    <option value="">Select vehicle type</option> 
+             <option value="ruck/Bus">Truck/Bus</option>  
+            </select><input class="inp-toll" id="t-select-sin" type="number" placeholder=" Single Journey" required><input class="inp-toll" type="number" id="t-select-return" placeholder=" Return Journey"  required><br>
+  <select class="toll-entry" id="fo-select">
+    <option value="">Select vehicle type</option>  
+             <option value="Heavy vehicle">Heavy vehicle</option>  
+            </select><input class="inp-toll" id="fo-select-sin" type="number" placeholder=" Single Journey" required><input class="inp-toll" type="number" id="fo-select-return" placeholder=" Return Journey"  required><br>
+  <button id="toll-insert" class="toll-button">Add</button>
+  </div>
+</div>
+
+</div>
+
+<div id="addvehicleModal" class="ebcf_modal">
+<div class="ebcf_modal-content_vehc">
+<span class="ebcf_close_vehc">&times;</span>
+<p class="vehicle-title">Add new entry</p>
+<br>
+<div class="vehicle-entry-container">
+  Select toll name* <br>
+  <select id="tollname" class="veh-entry"  required>
+             <option value="Kappalur">Kappalur</option>  
+             <option value="Chengalpattu">Chengalpattu</option>  
+             <option value="Krishnagiri">Krishnagiri</option>  
+      </select><br>
+Select vehicle type*<br>
+<select id="vehicle-type" class="veh-entry" required>
+             <option value="Car/Jeep/Van">Car/Jeep/Van</option>  
+             <option value="LCV">LCV</option>  
+             <option value="ruck/Bus">Truck/Bus</option>  
+             <option value="Heavy vehicle">Heavy vehicle</option>  
+</select><br>
+Vehicle number*<br>
+<input id="vehicle-number" class="num-veh" type="text" required><br>
+Tariff*<br>
+<input id="toll-tariff-ins" class="tariff-veh" type="text" required><br>
+<button id="btn-veh" class="btn-veh">Add</button>
+</div>
+</div>
+</div>
+
+
+
+    
+</body>
+</html>
